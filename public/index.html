@@ -13,122 +13,122 @@
       content="width=device-width, initial-scale=1.0"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>ChinoSport</title>
+    <title>Document</title>
   </head>
   <body>
-    <nav class="flex justify-between items-center bg-gray-100 mb-6 gap-4 px-10 py-4">
-      <div class="flex items-center gapx-4">
-        <h2 class="mr-8 font-bold">Chino<span class="text-blue-500">Sport</span></h2>
-        <div class="flex gap-4 font-medium items-center">
-          <div class="hover:text-blue-500 cursor-pointer">Productos</div>
+    <nav class="flex justify-between items-center fixed w-full z-40 bg-white shadown-sm border-b border-gray-200 bg-blue-300 px-14 py-4">
+      <div>
+        <a href="/dashboard" class="font-bold">Keyboards<span class="text-rose-500 ml-1">Amazing</span></a>
+      </div>
+      <div class="flex items-center justify-center gap-x-8">
+        <div class="flex gap-8 font-semibold items-center">
+          <a href="/productos" class="hover:text-blue-500 cursor-pointer">Productos</a>
           <div class="hover:text-blue-500 cursor-pointer">Categorias</div>
           <div class="hover:text-blue-500 cursor-pointer">Compras</div>
           <div class="hover:text-blue-500 cursor-pointer">Favoritos</div>
         </div>
       </div>
-      <div class="flex gap-4 items-center">
-        <input
-          class="bg-gray-200 rounded p-2 w-80"
-          placeholder="Buscar articulos..."
-          type="text"
-        />
-        <div class="relative">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="24"
-            focusable="false"
-            viewBox="0 0 12 12"
-          >
-            <path
-              fill="currentColor"
-              d="M4.55 9.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm5.2 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-5.2 1a.25.25 0 100 .5.25.25 0 000-.5zm5.2 0a.25.25 0 100 .5.25.25 0 000-.5zM11 1a1 1 0 01.94 1.341l-.046.106-2 4a1 1 0 01-.77.545L9 7H5a1 1 0 01-.182-.017L4.309 8H10.5a.5.5 0 01.09.992L10.5 9H4.309a1 1 0 01-.94-1.34l.046-.107.621-1.244-1.93-3.862a1.034 1.034 0 01-.05-.116L1.39 1H.5A.5.5 0 01.008.59L0 .5A.5.5 0 01.41.008L.5 0h1.2a.5.5 0 01.398.197l.05.08.361.723H11zm0 1H3.009l1.938 3.876.033.084L5 6h4l2-4z"
-            />
-          </svg>
-          <div
-            id="cart"
-            class="absolute -right-2 -top-2 h-4 p-1 bg-red-500 text-sm text-white rounded-full flex items-center justify-center"
-          >
-            0
-          </div>
-        </div>
+      <div>
+        <button class="text-sm mr-4 font-semibold bg-white h-10 absolute bottom-2 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">Carrito (0)</button>
       </div>
     </nav>
-    <main class="px-10">
-      <div>
-        <h1 class="text-3xl mb-4 font-semibold">Nuestros productos</h1>
+    <main>
+      <div class="flex bg-gray-100 relative justify-between px-10 pt-4 items-center">
+        <div class="py-36">
+          <h1 class="text-5xl font-bold max-w-sm">Encuentra un <span class="text-rose-500">teclado</span> que se adapte a ti</h1>
+        </div>
+        <div class="absolute right-0">
+          <img
+            src="https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_82645338/fee_786_587_png"
+            alt=""
+          />
+        </div>
       </div>
-      <div class="grid grid-cols-5 gap-4">
-        <div class="bg-gray-100 rounded-xl h-72 p-2 relative">
-          <img
-            class="w-full h-44 object-cover rounded-lg"
-            src="https://perryellisvenezuela.com/wp-content/uploads/2022/08/photo1659548461.jpeg"
-            alt=""
-          />
-          <div class="absolute flex flex-col items-center left-0 bottom-0 right-0 p-3 font-medium bg-white/50">
-            <div class="flex gap-4 items-center">
-              <div>Zapatos suisos</div>
-              <div class="font-bold">$100</div>
-            </div>
-            <button class="bg-blue-500 text-white rounded px-4 py-2 mt-4 text-sm font-bold hover:bg-blue-600">Agregar al carrito</button>
-          </div>
+      <div class="px-10 my-10">
+        <div>
+          <h1 class="text-2xl mb-4 font-semibold">Nuestros productos</h1>
         </div>
-        <div class="bg-gray-100 rounded-xl p-2 relative">
-          <img
-            class="w-full h-44 object-cover rounded-lg"
-            src="https://sansha.com.ve/wp-content/uploads/2022/03/ta01_1_1_1.jpg"
-            alt=""
-          />
-          <div class="absolute flex flex-col items-center left-0 bottom-0 right-0 p-3 font-medium bg-white/50">
-            <div class="flex gap-4 items-center">
-              <div>Zapatos de vestir</div>
-              <div class="font-bold">$250</div>
+        <div class="grid grid-cols-5 gap-4">
+          <article>
+            <div class="w-full h-44 bg-gray-200 mb-2 relative">
+              <img
+                src="https://es.marsgaming.eu/uploads/_thumnails/mrk0-light-1_960x480.png"
+                alt=""
+              />
+              <button class="text-xs font-semibold bg-white absolute bottom-2 hover:scale-105 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">
+                Añadir al carrito
+              </button>
             </div>
-            <button class="bg-blue-500 text-white rounded px-4 py-2 mt-4 text-sm font-bold hover:bg-blue-600">Agregar al carrito</button>
-          </div>
-        </div>
-        <div class="bg-gray-100 rounded-xl p-2 relative">
-          <img
-            class="w-full h-44 object-cover rounded-lg"
-            src="https://down-th.img.susercontent.com/file/4063571c08ca4464c2e5551cec67970b"
-            alt=""
-          />
-          <div class="absolute flex flex-col items-center left-0 bottom-0 right-0 p-3 font-medium bg-white/50">
-            <div class="flex gap-4 items-center">
-              <div>Zapatos arabes</div>
-              <div class="font-bold">$175</div>
+            <div class="flex justify-between items-center px-1">
+              <span class="font-medium">Teclado Gaming</span>
+              <span class="text-rose-500 font-semibold">$40</span>
             </div>
-            <button class="bg-blue-500 text-white rounded px-4 py-2 mt-4 text-sm font-bold hover:bg-blue-600">Agregar al carrito</button>
-          </div>
-        </div>
-        <div class="bg-gray-100 rounded-xl p-2 relative">
-          <img
-            class="w-full h-44 object-cover rounded-lg"
-            src="https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/catalog/product/27/88/8851770021427/8851770021427.jpg"
-            alt=""
-          />
-          <div class="absolute flex flex-col items-center left-0 bottom-0 right-0 p-3 font-medium bg-white/50">
-            <div class="flex gap-2 items-center">
-              <div class="text-base">Zapatos europeos</div>
-              <div class="font-bold">$300</div>
+          </article>
+          <article>
+            <div class="w-full h-44 bg-gray-200 mb-2 relative">
+              <img
+                src="https://www.gizcomputer.com/wp-content/uploads/2018/11/Keep-Out-F89CHV2-F89PRO-y-F89PT.png"
+                alt=""
+              />
+              <button class="text-xs font-semibold bg-white absolute bottom-2 hover:scale-105 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">
+                Añadir al carrito
+              </button>
             </div>
-            <button class="bg-blue-500 text-white rounded px-4 py-2 mt-4 text-sm font-bold hover:bg-blue-600">Agregar al carrito</button>
-          </div>
-        </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="font-medium">Teclado Keepout</span>
+              <span class="text-rose-500 font-semibold">$60</span>
+            </div>
+          </article>
 
-        <div class="bg-gray-100 rounded-xl p-2 relative">
-          <img
-            class="w-full h-44 object-cover rounded-lg"
-            src="https://img.freepik.com/fotos-premium/marca-deportiva-tailandesa-umbro-lanza-nuevo-zapato-futbol-velocita-elixir_1029469-125042.jpg"
-            alt=""
-          />
-          <div class="absolute flex flex-col items-center left-0 bottom-0 right-0 p-3 font-medium bg-white/50">
-            <div class="flex gap-2 items-center">
-              <div>Zapatos deportivos</div>
-              <div class="font-bold">$550</div>
+          <article>
+            <div class="w-full h-44 bg-gray-200 mb-2 relative">
+              <img
+                class="object-cover object-top"
+                src="https://navitech.com.py/wp-content/uploads/2023/06/ARG-KB-2051BK1.png"
+                alt=""
+              />
+              <button class="text-xs font-semibold bg-white absolute bottom-2 hover:scale-105 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">
+                Añadir al carrito
+              </button>
             </div>
-            <button class="bg-blue-500 text-white rounded px-4 py-2 mt-4 text-sm font-bold hover:bg-blue-600">Agregar al carrito</button>
-          </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="font-medium">Teclado con mouse</span>
+              <span class="text-rose-500 font-semibold">$20</span>
+            </div>
+          </article>
+          <article>
+            <div class="w-full h-44 bg-gray-200 mb-2 relative">
+              <img
+                class="object-cover object-top"
+                src="https://redragon.es/content/uploads/2022/04/fizz-rosa-1.png"
+                alt=""
+              />
+              <button class="text-xs font-semibold bg-white absolute bottom-2 hover:scale-105 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">
+                Añadir al carrito
+              </button>
+            </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="font-medium">Teclado Gaming Fizz</span>
+              <span class="text-rose-500 font-semibold">$90</span>
+            </div>
+          </article>
+
+          <article>
+            <div class="w-full h-44 overflow-hidden bg-gray-200 mb-2 relative">
+              <img
+                class="object-cotain object-top"
+                src="https://i5.walmartimages.com.mx/mg/gm/3pp/asr/3d0a9443-712f-4f83-95e1-0c3adc9d952a.d1b211396b125e661f36f3cc2ea78c88.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                alt=""
+              />
+              <button class="text-xs font-semibold bg-white absolute bottom-2 hover:scale-105 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">
+                Añadir al carrito
+              </button>
+            </div>
+            <div class="flex justify-between items-center px-1">
+              <span class="font-medium">Kit Gamer Xtreme Teclado Mouse</span>
+              <span class="text-rose-500 font-semibold">$90</span>
+            </div>
+          </article>
         </div>
       </div>
     </main>
@@ -140,18 +140,3 @@
     font-family: sans-serif;
   }
 </style>
-
-<script>
-  let cart = 0;
-
-  const button = document.querySelectorAll("button");
-
-  const $cart = document.querySelector("#cart");
-
-  button.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      cart += 1;
-      $cart.innerHTML = cart;
-    });
-  });
-</script>
