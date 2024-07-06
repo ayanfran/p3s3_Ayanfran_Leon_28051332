@@ -10,28 +10,42 @@
     <title>Productos</title>
   </head>
   <body>
-    <nav class="flex justify-between items-center fixed w-full z-40 bg-white shadown-sm border-b border-gray-200 bg-blue-300 px-14 py-4">
-      <div>
-        <a
-          href="/dashboard"
-          class="font-bold"
-          >Keyboards<span class="text-rose-500 ml-1">Amazing</span></a
-        >
-      </div>
-      <div class="flex items-center justify-center gap-x-8">
-        <div class="flex gap-8 font-semibold items-center">
-          <a
-            href="/productos"
-            class="hover:text-blue-500 cursor-pointer"
-            >Productos</a
-          >
+    <nav class="flex justify-between items-center bg-gray-100 mb-6 gap-4 px-10 py-4">
+      <div class="flex items-center gapx-4">
+        <a href="/" class="mr-8 font-bold">Chino<span class="text-blue-500">Sport</span></a>
+        <div class="flex gap-4 font-medium items-center">
+          <a href="/productos" class="hover:text-blue-500 cursor-pointer">Productos</a>
           <div class="hover:text-blue-500 cursor-pointer">Categorias</div>
           <div class="hover:text-blue-500 cursor-pointer">Compras</div>
           <div class="hover:text-blue-500 cursor-pointer">Favoritos</div>
         </div>
       </div>
-      <div>
-        <button class="text-sm mr-4 font-semibold bg-white h-10 absolute bottom-2 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">Carrito (0)</button>
+      <div class="flex gap-4 items-center">
+        <input
+          class="bg-gray-200 rounded p-2 w-80"
+          placeholder="Buscar articulos..."
+          type="text"
+        />
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            focusable="false"
+            viewBox="0 0 12 12"
+          >
+            <path
+              fill="currentColor"
+              d="M4.55 9.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm5.2 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-5.2 1a.25.25 0 100 .5.25.25 0 000-.5zm5.2 0a.25.25 0 100 .5.25.25 0 000-.5zM11 1a1 1 0 01.94 1.341l-.046.106-2 4a1 1 0 01-.77.545L9 7H5a1 1 0 01-.182-.017L4.309 8H10.5a.5.5 0 01.09.992L10.5 9H4.309a1 1 0 01-.94-1.34l.046-.107.621-1.244-1.93-3.862a1.034 1.034 0 01-.05-.116L1.39 1H.5A.5.5 0 01.008.59L0 .5A.5.5 0 01.41.008L.5 0h1.2a.5.5 0 01.398.197l.05.08.361.723H11zm0 1H3.009l1.938 3.876.033.084L5 6h4l2-4z"
+            />
+          </svg>
+          <div
+            id="cart"
+            class="absolute -right-2 -top-2 h-4 p-1 bg-red-500 text-sm text-white rounded-full flex items-center justify-center"
+          >
+            0
+          </div>
+        </div>
       </div>
     </nav>
     <main>
