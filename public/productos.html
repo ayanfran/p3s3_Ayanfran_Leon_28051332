@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Productos</title>
+  </head>
+  <body>
+    <nav class="flex justify-between items-center fixed w-full z-40 bg-white shadown-sm border-b border-gray-200 bg-blue-300 px-14 py-4">
+      <div>
+        <a
+          href="/dashboard"
+          class="font-bold"
+          >Keyboards<span class="text-rose-500 ml-1">Amazing</span></a
+        >
+      </div>
+      <div class="flex items-center justify-center gap-x-8">
+        <div class="flex gap-8 font-semibold items-center">
+          <a
+            href="/productos"
+            class="hover:text-blue-500 cursor-pointer"
+            >Productos</a
+          >
+          <div class="hover:text-blue-500 cursor-pointer">Categorias</div>
+          <div class="hover:text-blue-500 cursor-pointer">Compras</div>
+          <div class="hover:text-blue-500 cursor-pointer">Favoritos</div>
+        </div>
+      </div>
+      <div>
+        <button class="text-sm mr-4 font-semibold bg-white h-10 absolute bottom-2 hover:text-white hover:bg-rose-500 transition-all right-2 border rounded-full px-4 py-1">Carrito (0)</button>
+      </div>
+    </nav>
+    <main>
+      <div class="pt-20">
+        <div class="grid grid-cols-3 mx-10 gap-4">
+          <div>
+            <form
+              id="form"
+              method="POST"
+            >
+              <h2 class="mb-4 font-semibold">Agregar un nuevo producto</h2>
+              <div class="mb-4">
+                <label
+                  for="nombre"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Teclado"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="precio"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Precio</label
+                >
+                <input
+                  type="number"
+                  id="precio"
+                  name="precio"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="0"
+                  required
+                />
+              </div>
+              <div class="mb-2">
+                <label
+                  for="existencia_actual"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Existencia Actual</label
+                >
+                <input
+                  type="number"
+                  id="existencia_actual"
+                  name="existencia_actual"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="0"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="categoria"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Categoria</label
+                >
+                <select
+                  id="categoria"
+                  name="categoria_id"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                >
+                  <option selected>Seleciona una categoria</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                class="text-white bg-blue-700 w-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Agregar Producto
+              </button>
+            </form>
+          </div>
+          <div class="col-span-2">
+            <h1 class="text-xl font-bold mb-4">Lista de Productos</h1>
+
+            <div
+              id="container"
+              class="mt-4 grid grid-cols-3 gap-4"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+
+    const $form = $("form");
+    const $select = $("#categoria");
+    const $container = $("#container");
+
+    $form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData($form);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch("/productos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          createItem(data);
+        })
+        .catch((error) => console.error("Error:", error))
+    });
+
+    const getCategorias = async () => {
+      const data = await fetch("/categorias")
+        .then((response) => response.json())
+        .catch((error) => console.error("Error:", error));
+
+      data.map((item) => {
+        const $option = document.createElement("option");
+        $option.value = item.id;
+        $option.text = item.nombre;
+        $select.appendChild($option);
+      });
+    };
+
+    const createItem = (item) => {
+      const $div = document.createElement("div");
+      $div.innerHTML = `
+          <div class="bg-white border border-gray-200 rounded-lg shadow">
+            <div class="p-5">
+              <div class="mb-2 flex flex-row justify-between">
+                <h5 class="text-lg font-bold tracking-tight text-gray-900">${item.nombre}</h5>
+                <p class="font-normal text-gray-700"><span class="font-bold text-sm text-blue-700">#${item.codigo}</span></p>
+              </div>
+              <p class="mb-1 font-normal text-gray-700">Precio: <span class="font-bold">${item.precio}</span></p>
+              <p class="mb-1 font-normal text-gray-700">Existencia:  <span class="font-bold">${item.existencia_actual}</span> </p>
+              <p class="mb-1 font-normal text-gray-700">Categoria: <span class="font-bold">${item.categoria.nombre}</span> </p>
+            </div>
+          </div>
+        `;
+      $container.appendChild($div);
+    };
+
+    getProducts = async () => {
+      const data = await fetch("/productos/all")
+        .then((response) => response.json())
+        .catch((error) => console.error("Error:", error));
+
+      data.map((item) => {
+        createItem(item);
+      });
+    };
+
+    getCategorias();
+    getProducts();
+  </script>
+</html>
+
+<style>
+  * {
+    font-family: sans-serif;
+  }
+</style>
